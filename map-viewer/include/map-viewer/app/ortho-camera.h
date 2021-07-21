@@ -82,13 +82,12 @@ namespace mv {
         }
 
       }
-      if (Input::is_key_down(KEY_F5)) {
-        _target = glm::vec3(377777.00f, 2077777.00f, 300.0f);
-      }
+
       if (Input::is_mouse_double_clicked(MOUSE_BUTTON_LEFT)) {
         glm::vec3 mouse_pos = glm::vec3(get_mouse_world_pos(), 0.0f);
         _target = glm::vec3(mouse_pos.x, mouse_pos.y, _position.z / 5.0f);
       }
+
       /* seek the target */
       {
         _position = glm::lerp( _position, _target, _deacceleration_panning );

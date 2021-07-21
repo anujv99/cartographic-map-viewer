@@ -140,14 +140,14 @@ public:
     _framebuffer->set_color_attachment( _color_buffer, 0 );
     _framebuffer->set_color_attachment( _polygon_id_buffer, 1 );
 
-    _map_layers.push_back( new MapLayer( "../../../../json/PROV.geojson" ) );
+    _map_layers.push_back( new MapLayer( "../../../../json/countries.geojson" ) );
 
     _ss = new Shader( vs, ps );
     
     Box bbox = _map_layers[0]->bounding_box();
 
     auto c = bbox.center();
-    c.z = 400.0f;
+    c.z = 0.5f;
 
     _camera = new OrthoCamera();
     _camera->set_position( c );

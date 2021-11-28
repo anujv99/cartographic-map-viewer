@@ -5,7 +5,12 @@
 
 namespace mv {
 
+  #ifdef __linux__
+  using time_point = std::chrono::time_point<std::chrono::system_clock>;
+  #else
   using time_point = std::chrono::time_point<std::chrono::steady_clock>;
+  #endif
+
   using time_type  = float;
 
   /* Sime timer class, can be used to get time since   */

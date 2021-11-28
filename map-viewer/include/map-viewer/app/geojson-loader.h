@@ -162,7 +162,7 @@ namespace mv {
     }
 
     /* process properties */
-    for ( auto& property = polygon_properties.MemberBegin(); property < polygon_properties.MemberEnd(); property++ ) {
+    for ( auto property = polygon_properties.MemberBegin(); property < polygon_properties.MemberEnd(); property++ ) {
       Value& key = property->name;
       Value& val = property->value;
 

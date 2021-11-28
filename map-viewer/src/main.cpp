@@ -140,7 +140,7 @@ public:
     _framebuffer->set_color_attachment( _color_buffer, 0 );
     _framebuffer->set_color_attachment( _polygon_id_buffer, 1 );
 
-    _map_layers.push_back( new MapLayer( "../../../../json/countries.geojson" ) );
+    _map_layers.push_back( new MapLayer( "json/countries.geojson" ) );
 
     _ss = new Shader( vs, ps );
     
@@ -209,7 +209,8 @@ public:
 
     glm::uvec2 viewport_size = { _framebuffer->width(), _framebuffer->height() };
     if ( viewport_size != menu->viewport_size() ) {
-      window_resize( WindowResizeEvent( menu->viewport_size().x, menu->viewport_size().y ) );
+      WindowResizeEvent resize_event( menu->viewport_size().x, menu->viewport_size().y );
+      window_resize( resize_event );
     }
 
     if ( _editor_layer->is_editing() )
@@ -318,7 +319,7 @@ public:
           _ss->set_vec4( "color", menu->view_mode_line_highligh_color() );
 
           for ( const auto& id : selected ) {
-            auto& [offset, size] = layer->get_outline_indices( id );
+            auto [offset, size] = layer->get_outline_indices( id );
             RenderState::ref().draw( size, offset );
           }
         }

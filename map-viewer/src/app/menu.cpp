@@ -13,7 +13,7 @@
 namespace mv {
 
   ApplicationMenu::ApplicationMenu( void ) : Layer( "application menu layer" ), _browser( "../../../../" ) {
-    set_imgui_font( "../../../../fonts/LatoLatin-Regular.ttf" );
+    set_imgui_font( "fonts/LatoLatin-Regular.ttf" );
     set_imgui_style_silver();
 
     _browser.load_fonts();

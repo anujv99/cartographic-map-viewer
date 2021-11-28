@@ -31,8 +31,8 @@ namespace mv {
 
     for ( const auto& geometry : _geometries ) {
       /* compute triangulated vertices and outlines for the geometry */
-      auto& vertices = make_polygon_buffer( geometry );
-      auto& outlines = make_outline_buffer( geometry );
+      auto vertices = make_polygon_buffer( geometry );
+      auto outlines = make_outline_buffer( geometry );
 
       _buffer_offsets.push_back( std::make_pair( combined_vertices.size(), combined_outlines.size() ) );
 

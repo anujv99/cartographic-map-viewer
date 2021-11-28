@@ -62,14 +62,15 @@ namespace mv {
       }
     }
 
-    template<>
-    void dispatch<Event>( std::function<bool( Event& e )> func ) {
-      if ( !_e._handled && func ) {
-        _e._handled = func( _e );
-      }
-    }
-  private:
+ private:
     Event& _e;
   };
 
+  template<>
+  inline void EventDispatcher::dispatch<Event>( std::function<bool( Event& e )> func ) {
+    if ( !_e._handled && func ) {
+      _e._handled = func( _e );
+    }
+  }
+ 
 }

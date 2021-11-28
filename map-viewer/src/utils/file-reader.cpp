@@ -14,7 +14,7 @@ namespace mv {
   }
 
   void DataFile::open( const string& filename ) {
-    _wif.open( filename, std::ios::in || std::ios::binary );
+    _wif.open( filename, std::ios::in | std::ios::binary );
 
     if ( !_wif ) {
       LOG_ERROR( "failed to open file: {}", filename );

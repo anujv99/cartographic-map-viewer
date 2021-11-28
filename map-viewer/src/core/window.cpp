@@ -14,7 +14,7 @@ namespace mv {
   /* capture those events and dispatch them in our application.      */
   static void window_close_callback ( ::GLFWwindow* window                                              );
   static void window_move_callback  ( ::GLFWwindow* window, int x, int y                                );
-  static void window_size_callback  ( ::GLFWwindow* window, int x, int y                                );
+         void window_size_callback  ( ::GLFWwindow* window, int x, int y                                );
   static void key_callback          ( ::GLFWwindow* window, int key, int scancode, int action, int mods );
   static void char_callback         ( ::GLFWwindow* window, unsigned int charcode                       );
   static void cursor_pos_callback   ( ::GLFWwindow* window, double x, double y                          );
@@ -119,7 +119,7 @@ namespace mv {
 
   /* glfw window callbacks */
 
-  void window_close_callback( ::GLFWwindow* window ) {
+  static void window_close_callback( ::GLFWwindow* window ) {
     event_emit_func func = get_emit_func( window );
 
     if ( !func )
@@ -129,7 +129,7 @@ namespace mv {
     func( e );
   }
 
-  void window_move_callback( ::GLFWwindow* window, int x, int y ) {
+  static void window_move_callback( ::GLFWwindow* window, int x, int y ) {
     event_emit_func func = get_emit_func( window );
 
     if ( !func )
@@ -155,7 +155,7 @@ namespace mv {
 
   /* glfw key callbacks */
 
-  void key_callback( ::GLFWwindow* window, int key, int scancode, int action, int mods ) {
+  static void key_callback( ::GLFWwindow* window, int key, int scancode, int action, int mods ) {
     event_emit_func func = get_emit_func( window );
 
     if ( !func )
@@ -186,7 +186,7 @@ namespace mv {
     }
   }
 
-  void char_callback( ::GLFWwindow* window, unsigned int charcode ) {
+  static void char_callback( ::GLFWwindow* window, unsigned int charcode ) {
     event_emit_func func = get_emit_func( window );
 
     if ( !func )
